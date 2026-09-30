@@ -1,7 +1,7 @@
 {
   "schema": "public-static-site-v1",
-  "repository": "shironenana-ops/40sai-space-trip-site",
-  "origin": "https://shironenana-ops.github.io/40sai-space-trip-site",
+  "repository": "kiraboshi-neko/40sai-space-trip-site",
+  "origin": "https://kiraboshi-neko.github.io/40sai-space-trip-site",
   "throughEpisode": 10,
   "files": [
     {
@@ -50,19 +50,14 @@
       "sha256": "de091eb46e2bfa24776aa49c6fbc887a31e2e9761c30071a3029f9616a573435"
     },
     {
-      "path": "docs/assets/teaser-30s-v01.mp4",
-      "bytes": 3129380,
-      "sha256": "ec57ab8ba0b682c6100876bebfbd8e7ec3104a7c78c3c8d51eb05f166ec6b524"
-    },
-    {
-      "path": "docs/assets/teaser-ja.vtt",
-      "bytes": 547,
-      "sha256": "93b2acb7deea9d670a7de36f1109c995783eb101a9f5d59e3390d6bab66b8e16"
+      "path": "docs/assets/teaser-30s-v02.mp4",
+      "bytes": 3305214,
+      "sha256": "9e9f4d334787813311c3217129f8a3e3b6d6de01244b633b177630e68ada261b"
     },
     {
       "path": "docs/index.html",
-      "bytes": 14090,
-      "sha256": "1521edaca086625e9048b39123ef6c4025d6e18e9346c1e66e63b2aa09969371"
+      "bytes": 14114,
+      "sha256": "2a882f4ae902d025fd7cdbf89083d650344191970929b5447227fafcaaf3e4f8"
     },
     {
       "path": "docs/style.css",
