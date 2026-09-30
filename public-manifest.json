@@ -1,0 +1,73 @@
+{
+  "schema": "public-static-site-v1",
+  "repository": "shironenana-ops/40sai-space-trip-site",
+  "origin": "https://shironenana-ops.github.io/40sai-space-trip-site",
+  "throughEpisode": 10,
+  "files": [
+    {
+      "path": "docs/.nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/01-title-logo-v01.png",
+      "bytes": 1129426,
+      "sha256": "8dc8ca4a19abfd74bde937a1cdf8346bf6efc936a8ac59a048e879f6a07f6ebf"
+    },
+    {
+      "path": "docs/assets/02-naoto-design-v01.png",
+      "bytes": 2028249,
+      "sha256": "898c786d5bde573d8b5226f48dd68f97a21d20114052495b17c05295838a3153"
+    },
+    {
+      "path": "docs/assets/03-mio-design-v01.png",
+      "bytes": 2009784,
+      "sha256": "a8faccaa5cacc5ce3adf55519f6d603e86e1b2fda92d64d91714f12c91f639a0"
+    },
+    {
+      "path": "docs/assets/04-makoto-design-v01.png",
+      "bytes": 1992826,
+      "sha256": "7514e2f4ec39ec66449d10b7aec3e40ffef33bf70a50d85503240e359035a59d"
+    },
+    {
+      "path": "docs/assets/05-key-visual-v01.png",
+      "bytes": 2163503,
+      "sha256": "12ce3df6dd49e8e2f8b81b5f2dd4a3d1e01ab9969cb3057442de6ac3fd7fbb3d"
+    },
+    {
+      "path": "docs/assets/07-social-preview-v01.png",
+      "bytes": 2338843,
+      "sha256": "729deb971736b33512d585037c5d5409e3b20400d182faa2dc61232379536876"
+    },
+    {
+      "path": "docs/assets/08-x-header-v01.png",
+      "bytes": 2245220,
+      "sha256": "b8e976c372d4d8be6779b87b9841b33d7346e8a7771d0d70b271cdb91b4bc295"
+    },
+    {
+      "path": "docs/assets/icon.svg",
+      "bytes": 424,
+      "sha256": "de091eb46e2bfa24776aa49c6fbc887a31e2e9761c30071a3029f9616a573435"
+    },
+    {
+      "path": "docs/assets/teaser-30s-v01.mp4",
+      "bytes": 3129380,
+      "sha256": "ec57ab8ba0b682c6100876bebfbd8e7ec3104a7c78c3c8d51eb05f166ec6b524"
+    },
+    {
+      "path": "docs/assets/teaser-ja.vtt",
+      "bytes": 547,
+      "sha256": "93b2acb7deea9d670a7de36f1109c995783eb101a9f5d59e3390d6bab66b8e16"
+    },
+    {
+      "path": "docs/index.html",
+      "bytes": 14111,
+      "sha256": "3b13d98d0cbd96ecfe92399325429615adde111f5ab0835c1e2958d9a35676e5"
+    },
+    {
+      "path": "docs/style.css",
+      "bytes": 10746,
+      "sha256": "e32d0c1d7869ed4dd565bcd81063486f0736c4f2423fa0bdb474e6ac35a56732"
+    }
+  ]
+}
