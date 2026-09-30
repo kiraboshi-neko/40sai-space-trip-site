@@ -27,6 +27,8 @@ for(const item of manifest.files) {
  assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256,`Hash mismatch: ${item.path}`);
 }
 const html=readFileSync(path.join(root,'docs/index.html'),'utf8');
+assert(html.includes('<small>著者：黒龍</small>'),'Public author credit missing');
+assert(readFileSync(path.join(root,'README.md'),'utf8').includes('。著者：黒龍。'),'Repository author credit missing');
 assert(!html.includes('{{'),'Unresolved template');
 assert(!html.includes('.chatgpt.site'),'Old hosting reference');
 assert(html.includes(`rel="canonical" href="${manifest.origin}/"`));
