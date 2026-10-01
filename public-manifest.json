@@ -2,7 +2,114 @@
   "schema": "public-static-site-v1",
   "repository": "kiraboshi-neko/40sai-space-trip-site",
   "origin": "https://kiraboshi-neko.github.io/40sai-space-trip-site",
-  "throughEpisode": 10,
+  "throughEpisode": 20,
+  "episodes": [
+    {
+      "number": 0,
+      "title": "会社命令で宇宙へ",
+      "url": "https://ncode.syosetu.com/n0686mv/1/"
+    },
+    {
+      "number": 1,
+      "title": "落ちる予定の検査",
+      "url": "https://ncode.syosetu.com/n0686mv/2/"
+    },
+    {
+      "number": 2,
+      "title": "出張届の行き先",
+      "url": "https://ncode.syosetu.com/n0686mv/3/"
+    },
+    {
+      "number": 3,
+      "title": "正解は、止めること",
+      "url": "https://ncode.syosetu.com/n0686mv/4/"
+    },
+    {
+      "number": 4,
+      "title": "うまい、の次の一言",
+      "url": "https://ncode.syosetu.com/n0686mv/5/"
+    },
+    {
+      "number": 5,
+      "title": "土曜日の星印",
+      "url": "https://ncode.syosetu.com/n0686mv/6/"
+    },
+    {
+      "number": 6,
+      "title": "了解、の中身",
+      "url": "https://ncode.syosetu.com/n0686mv/7/"
+    },
+    {
+      "number": 7,
+      "title": "名前のない食卓",
+      "url": "https://ncode.syosetu.com/n0686mv/8/"
+    },
+    {
+      "number": 8,
+      "title": "留守番ではない",
+      "url": "https://ncode.syosetu.com/n0686mv/9/"
+    },
+    {
+      "number": 9,
+      "title": "帰ったら、の約束",
+      "url": "https://ncode.syosetu.com/n0686mv/10/"
+    },
+    {
+      "number": 10,
+      "title": "搭乗券の、その前に",
+      "url": "https://ncode.syosetu.com/n0686mv/11/"
+    },
+    {
+      "number": 11,
+      "title": "四十歳の、合格待ち",
+      "url": "https://ncode.syosetu.com/n0686mv/12/"
+    },
+    {
+      "number": 12,
+      "title": "同行者ではなく、担当者",
+      "url": "https://ncode.syosetu.com/n0686mv/13/"
+    },
+    {
+      "number": 13,
+      "title": "マコの名刺",
+      "url": "https://ncode.syosetu.com/n0686mv/14/"
+    },
+    {
+      "number": 14,
+      "title": "三人分の昼休み",
+      "url": "https://ncode.syosetu.com/n0686mv/15/"
+    },
+    {
+      "number": 15,
+      "title": "署名のあとに、一口",
+      "url": "https://ncode.syosetu.com/n0686mv/16/"
+    },
+    {
+      "number": 16,
+      "title": "いつもの席の、最終日",
+      "url": "https://ncode.syosetu.com/n0686mv/17/"
+    },
+    {
+      "number": 17,
+      "title": "行き先は、窓の外",
+      "url": "https://ncode.syosetu.com/n0686mv/18/"
+    },
+    {
+      "number": 18,
+      "title": "地球の見える、晩ごはん",
+      "url": "https://ncode.syosetu.com/n0686mv/19/"
+    },
+    {
+      "number": 19,
+      "title": "出勤先に、空がない",
+      "url": "https://ncode.syosetu.com/n0686mv/20/"
+    },
+    {
+      "number": 20,
+      "title": "三人で座れる、小さな場所",
+      "url": "https://ncode.syosetu.com/n0686mv/21/"
+    }
+  ],
   "files": [
     {
       "path": "docs/.nojekyll",
@@ -76,13 +183,13 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 14114,
-      "sha256": "5c38f9a754939d4da447a48b3e496ed66a99bc2d9aeef57f3e14e802f49bfaa8"
+      "bytes": 17094,
+      "sha256": "e9a9bb2f17771ec6daf5f10a1449ef71cf748535b667cbc4fa20fddc0acca7f0"
     },
     {
       "path": "docs/style.css",
-      "bytes": 10746,
-      "sha256": "e32d0c1d7869ed4dd565bcd81063486f0736c4f2423fa0bdb474e6ac35a56732"
+      "bytes": 13389,
+      "sha256": "1c9a3b777dcade679e390dd6422c36a367738096a7ce7634b9a94d731a0cdfeb"
     }
   ]
 }

@@ -7,3 +7,46 @@
 @media(max-width:1100px){.hero .title-image{width:62vw}.hero-shade{background:linear-gradient(90deg,#071020f2 0%,#071020ba 40%,#0710203a 100%),linear-gradient(0deg,#090f1e,transparent 60%)}.hero{min-height:720px}}
 @media(max-width:760px){.hero{min-height:730px;align-items:flex-end;padding-top:250px}.hero-art{height:57%;object-position:60% top}.hero-shade{background:linear-gradient(0deg,#090f1e 20%,#090f1ec9 52%,transparent 85%)}.hero .title-image{width:100%;margin:20px 0}.hero-line{font-size:16px}.hero-description{margin:15px 0}.issue{font-size:10px;margin-top:22px}.hero-actions{gap:10px}.button{font-size:13px;padding:12px 17px}.portrait{height:350px}.portrait>img{width:260%;object-fit:cover}.media-grid{grid-template-columns:1fr}.orbit-map{padding:15px}.map-orbit{margin:0 12px}.map-locked{font-size:11px}.map-locked small{font-size:10px}}
 .portrait>img{position:absolute;width:520%;height:auto;max-width:none;left:-7.5%;top:-8%;object-fit:initial}
+
+/* Keep the logo and the complete character image in separate layout tracks. */
+.hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center;min-height:660px;padding:64px 6% 104px}
+.hero-copy{grid-column:1;grid-row:1;min-width:0;max-width:540px}
+.hero-media{grid-column:2;grid-row:1;min-width:0;border:1px solid #34515d;border-radius:12px;overflow:hidden;box-shadow:0 20px 70px #0006}
+.hero .hero-art{position:static;inset:auto;width:100%;height:auto;object-fit:contain;object-position:center}
+.hero .title-image{width:100%;max-width:540px;margin:28px 0}
+.hero-line{font-size:clamp(16px,1.4vw,20px)}
+.hero-bottom{left:6%;right:6%}
+.episode-groups{display:grid;gap:18px;margin-top:34px}
+.episode-group{border:1px solid var(--line);background:var(--panel)}
+.episode-group>summary{display:flex;align-items:center;gap:20px;padding:22px 26px;cursor:pointer;list-style:none}
+.episode-group>summary::-webkit-details-marker{display:none}
+.episode-group>summary strong{font-size:22px}
+.episode-group>summary span{font-size:13px;color:var(--muted)}
+.episode-group>summary::after{content:"＋";margin-left:auto;color:var(--mint);font-size:24px}
+.episode-group[open]>summary::after{content:"−"}
+.episode-group>summary:hover{background:#17303b}
+.episode-group>summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.episode-group .episode-list{margin:0;padding:0 26px 8px}
+.episode-group .episode-list>a{display:grid;grid-template-columns:100px minmax(0,1fr) 54px;gap:20px;padding:17px 0}
+.episode-group .episode-list>a:hover strong{color:var(--mint)}
+.episode-group .episode-list span:last-child{white-space:nowrap}
+@media(max-width:1000px){
+ .hero{grid-template-columns:minmax(0,1fr);gap:28px;min-height:0;padding:42px 6% 94px}
+ .hero-media{grid-column:1;grid-row:1;max-width:820px;width:100%;justify-self:center}
+ .hero-copy{grid-column:1;grid-row:2;max-width:600px;width:100%;justify-self:center}
+ .hero .title-image{width:100%;max-width:540px;margin:24px 0}
+ .hero .hero-art{height:auto}
+}
+@media(max-width:760px){
+ .hero{padding-top:28px;gap:24px}
+ .hero .title-image{margin:18px 0}
+ .hero-copy .eyebrow{font-size:11px;letter-spacing:.2em}
+ .hero-line{font-size:16px}
+ .episode-group>summary{padding:18px;gap:12px;flex-wrap:wrap}
+ .episode-group>summary strong{font-size:20px}
+ .episode-group>summary span{font-size:11px}
+ .episode-group .episode-list{padding:0 18px 8px}
+ .episode-group .episode-list>a{grid-template-columns:76px minmax(0,1fr);gap:4px 12px}
+ .episode-group .episode-list span{font-size:11px}
+ .episode-group .episode-list span:last-child{grid-column:2;justify-self:end}
+}
