@@ -55,6 +55,11 @@
       "sha256": "4f9ca2ba159ff9cef297a9d58bc0782a908dfba3bb6fa8f046caccce3b7823f5"
     },
     {
+      "path": "docs/assets/07-social-preview-v03.png",
+      "bytes": 2261765,
+      "sha256": "413cfcf1265e1a2466a19ab268b9bbaf5be45ea47697391e8040d1184a663ae1"
+    },
+    {
       "path": "docs/assets/08-x-header-v01.png",
       "bytes": 2245220,
       "sha256": "b8e976c372d4d8be6779b87b9841b33d7346e8a7771d0d70b271cdb91b4bc295"
@@ -72,7 +77,7 @@
     {
       "path": "docs/index.html",
       "bytes": 14114,
-      "sha256": "86120039d6256bda95a13f07595d80e87571be4b5d8f0589d6dbbed9c891d69b"
+      "sha256": "5c38f9a754939d4da447a48b3e496ed66a99bc2d9aeef57f3e14e802f49bfaa8"
     },
     {
       "path": "docs/style.css",
