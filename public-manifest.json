@@ -30,14 +30,29 @@
       "sha256": "7514e2f4ec39ec66449d10b7aec3e40ffef33bf70a50d85503240e359035a59d"
     },
     {
+      "path": "docs/assets/04-makoto-design-v02.png",
+      "bytes": 1929557,
+      "sha256": "f57567a274964144f3d28f44a667d03333f55f216ad7fcdb03319057adebf518"
+    },
+    {
       "path": "docs/assets/05-key-visual-v01.png",
       "bytes": 2163503,
       "sha256": "12ce3df6dd49e8e2f8b81b5f2dd4a3d1e01ab9969cb3057442de6ac3fd7fbb3d"
     },
     {
+      "path": "docs/assets/05-key-visual-v02.png",
+      "bytes": 2090549,
+      "sha256": "e282f5e793aba936205cf5be19f1a5d0ea0b7d8e41590c9fd0fc66b7b4c20d2e"
+    },
+    {
       "path": "docs/assets/07-social-preview-v01.png",
       "bytes": 2338843,
       "sha256": "729deb971736b33512d585037c5d5409e3b20400d182faa2dc61232379536876"
+    },
+    {
+      "path": "docs/assets/07-social-preview-v02.png",
+      "bytes": 2283977,
+      "sha256": "4f9ca2ba159ff9cef297a9d58bc0782a908dfba3bb6fa8f046caccce3b7823f5"
     },
     {
       "path": "docs/assets/08-x-header-v01.png",
@@ -57,7 +72,7 @@
     {
       "path": "docs/index.html",
       "bytes": 14114,
-      "sha256": "2a882f4ae902d025fd7cdbf89083d650344191970929b5447227fafcaaf3e4f8"
+      "sha256": "86120039d6256bda95a13f07595d80e87571be4b5d8f0589d6dbbed9c891d69b"
     },
     {
       "path": "docs/style.css",
