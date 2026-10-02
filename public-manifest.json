@@ -182,14 +182,43 @@
       "sha256": "9e9f4d334787813311c3217129f8a3e3b6d6de01244b633b177630e68ada261b"
     },
     {
+      "path": "docs/assets/world-earth-orbit-v01.png",
+      "bytes": 2303005,
+      "sha256": "efdc82f95277a7d378219de27d38090995cb225cfe381dbb58fb8e83e6ec8baf"
+    },
+    {
       "path": "docs/index.html",
-      "bytes": 17094,
-      "sha256": "e9a9bb2f17771ec6daf5f10a1449ef71cf748535b667cbc4fa20fddc0acca7f0"
+      "bytes": 22994,
+      "sha256": "b524b60e8100d6bc4b2974a206955c38602bdd0103fa4dbd9269e1364579e3dd"
     },
     {
       "path": "docs/style.css",
       "bytes": 13389,
       "sha256": "1c9a3b777dcade679e390dd6422c36a367738096a7ce7634b9a94d731a0cdfeb"
+    },
+    {
+      "path": "docs/world.css",
+      "bytes": 9554,
+      "sha256": "9ee1d3e74f2c47a3125b7d3f36c37def995e05936b53f3edd165968c13d657e7"
+    },
+    {
+      "path": "docs/world.js",
+      "bytes": 5134,
+      "sha256": "713a70056888d57fdcb647fad2db00e05ff6946e11ad9806f8bb7f225bf211cb"
     }
-  ]
+  ],
+  "world": {
+    "throughEpisode": 20,
+    "locations": [
+      "earth",
+      "station"
+    ],
+    "spots": [
+      "dining",
+      "work",
+      "cabin",
+      "window"
+    ],
+    "illustrationOnly": true
+  }
 }
