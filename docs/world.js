@@ -1,4 +1,4 @@
-/* Reader-facing facts through EP20 only. No future canon or remote requests. */
+/* Reader-facing facts through EP30 only. No future canon or remote requests. */
 (() => {
   'use strict';
   const atlas = document.getElementById('world-atlas');
@@ -18,6 +18,10 @@
   const byId = id => document.getElementById(id);
   const fixButton = byId('world-fix');
   const motionButton = byId('world-motion');
+  const mealTerminal = byId('meal-terminal');
+  const mealButtons = [...atlas.querySelectorAll('[data-meal-ticket]')];
+  const mealReset = byId('meal-reset');
+  const mealTickets = ['01', '02', '03'];
   const media = window.matchMedia('(prefers-reduced-motion: reduce)');
   const setText = (id, value) => { byId(id).textContent = value; };
   const setPressed = (buttons, key, value) => buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset[key] === value)));
@@ -35,6 +39,7 @@
     setText('world-view-copy', value.caption);
     byId('world-station-guide').hidden = location !== 'station';
     byId('world-earth-guide').hidden = location !== 'earth';
+    mealTerminal.hidden = location !== 'station';
   }
   function chooseSpot(spot) {
     if (!Object.hasOwn(spots, spot)) return;
@@ -45,6 +50,24 @@
     setText('world-place-copy', value.copy);
     byId('world-place-link').setAttribute('href', 'https://ncode.syosetu.com/n0686mv/' + value.chapter + '/');
   }
+  function receiveMeal(ticket) {
+    if (!mealTickets.includes(ticket)) return;
+    mealTerminal.dataset.receipt = 'received';
+    setPressed(mealButtons, 'mealTicket', ticket);
+    setText('meal-status', '番号 ' + ticket + ' を照合しました。夕飯袋を回収し、固定しました。');
+    mealTerminal.querySelector('.meal-package-label').textContent = 'DINNER / 番号 ' + ticket;
+    mealReset.disabled = false;
+  }
+  function resetMeal() {
+    mealTerminal.dataset.receipt = 'waiting';
+    setPressed(mealButtons, 'mealTicket', '');
+    setText('meal-status', '夕飯袋は、受け渡しを待っています。');
+    mealTerminal.querySelector('.meal-package-label').textContent = 'DINNER / 受渡待ち';
+    mealReset.disabled = true;
+  }
+  mealButtons.forEach(button => button.addEventListener('click', () => receiveMeal(button.dataset.mealTicket)));
+  mealReset.addEventListener('click', resetMeal);
+  mealTerminal.hidden = atlas.dataset.location !== 'station';
   locationButtons.forEach(button => button.addEventListener('click', () => chooseLocation(button.dataset.worldLocation)));
   spotButtons.forEach(button => button.addEventListener('click', () => chooseSpot(button.dataset.worldSpot)));
   fixButton.addEventListener('click', () => {

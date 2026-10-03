@@ -2,7 +2,7 @@
   "schema": "public-static-site-v1",
   "repository": "kiraboshi-neko/40sai-space-trip-site",
   "origin": "https://kiraboshi-neko.github.io/40sai-space-trip-site",
-  "throughEpisode": 20,
+  "throughEpisode": 30,
   "episodes": [
     {
       "number": 0,
@@ -108,6 +108,56 @@
       "number": 20,
       "title": "三人で座れる、小さな場所",
       "url": "https://ncode.syosetu.com/n0686mv/21/"
+    },
+    {
+      "number": 21,
+      "title": "受取口は、もう一つ向こう",
+      "url": "https://ncode.syosetu.com/n0686mv/22/"
+    },
+    {
+      "number": 22,
+      "title": "話せることと、冷めたご飯",
+      "url": "https://ncode.syosetu.com/n0686mv/23/"
+    },
+    {
+      "number": 23,
+      "title": "空欄のまま届く、感想",
+      "url": "https://ncode.syosetu.com/n0686mv/24/"
+    },
+    {
+      "number": 24,
+      "title": "ついでではない、昼ごはん",
+      "url": "https://ncode.syosetu.com/n0686mv/25/"
+    },
+    {
+      "number": 25,
+      "title": "七人分の、余りかた",
+      "url": "https://ncode.syosetu.com/n0686mv/26/"
+    },
+    {
+      "number": 26,
+      "title": "休む場所にも、固定具がある",
+      "url": "https://ncode.syosetu.com/n0686mv/27/"
+    },
+    {
+      "number": 27,
+      "title": "届けないという、仕事",
+      "url": "https://ncode.syosetu.com/n0686mv/28/"
+    },
+    {
+      "number": 28,
+      "title": "写真には、音が写らない",
+      "url": "https://ncode.syosetu.com/n0686mv/29/"
+    },
+    {
+      "number": 29,
+      "title": "冷めた時にも、名前がある",
+      "url": "https://ncode.syosetu.com/n0686mv/30/"
+    },
+    {
+      "number": 30,
+      "title": "次に待つもの",
+      "url": "https://ncode.syosetu.com/n0686mv/31/"
     }
   ],
   "files": [
@@ -172,6 +222,11 @@
       "sha256": "b8e976c372d4d8be6779b87b9841b33d7346e8a7771d0d70b271cdb91b4bc295"
     },
     {
+      "path": "docs/assets/09-reception-woman-v01.png",
+      "bytes": 1997998,
+      "sha256": "511d5fc34dee6a2fcf942863176006bf2a564bd28a1a803912af062e23f4c2d2"
+    },
+    {
       "path": "docs/assets/icon.svg",
       "bytes": 424,
       "sha256": "de091eb46e2bfa24776aa49c6fbc887a31e2e9761c30071a3029f9616a573435"
@@ -188,27 +243,27 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 22994,
-      "sha256": "b524b60e8100d6bc4b2974a206955c38602bdd0103fa4dbd9269e1364579e3dd"
+      "bytes": 29870,
+      "sha256": "d29bd0f8496955171e803778e83a39cdd88fa0339f5c1885fdb0b715b50c6c70"
     },
     {
       "path": "docs/style.css",
-      "bytes": 13389,
-      "sha256": "1c9a3b777dcade679e390dd6422c36a367738096a7ce7634b9a94d731a0cdfeb"
+      "bytes": 15496,
+      "sha256": "5f678b0f1414c20ff363b6e47d6911596c877102c31896e0255296db65742fb9"
     },
     {
       "path": "docs/world.css",
-      "bytes": 9554,
-      "sha256": "9ee1d3e74f2c47a3125b7d3f36c37def995e05936b53f3edd165968c13d657e7"
+      "bytes": 12243,
+      "sha256": "92d55a1c9dfd0911473298a98d9366ee6a3e28ae22836211595e54104f8a538e"
     },
     {
       "path": "docs/world.js",
-      "bytes": 5134,
-      "sha256": "713a70056888d57fdcb647fad2db00e05ff6946e11ad9806f8bb7f225bf211cb"
+      "bytes": 6373,
+      "sha256": "a0a83633477c24b2cc3413547fb4ab5cbb0788ca0766d97f8a3ce08fe0c1fc19"
     }
   ],
   "world": {
-    "throughEpisode": 20,
+    "throughEpisode": 30,
     "locations": [
       "earth",
       "station"
@@ -219,6 +274,34 @@
       "cabin",
       "window"
     ],
+    "illustrationOnly": true,
+    "mealTerminal": {
+      "ticketNumbers": [
+        "01",
+        "02",
+        "03"
+      ],
+      "illustrationOnly": true,
+      "remoteRequests": false,
+      "audio": false
+    }
+  },
+  "characters": {
+    "throughEpisode": 30,
+    "revealed": [
+      {
+        "id": "reception-woman",
+        "label": "受渡室の女性",
+        "firstEpisode": 21,
+        "nameDisclosed": false
+      },
+      {
+        "id": "station-desk",
+        "label": "笹倉さん",
+        "firstEpisode": 19
+      }
+    ],
+    "readerGate": "character-21-30",
     "illustrationOnly": true
   }
 }

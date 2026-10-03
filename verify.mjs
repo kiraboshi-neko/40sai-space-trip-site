@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.dirname(fileURLToPath(import.meta.url));
-const expectedAssets=['01-title-logo-v01.png','02-naoto-design-v01.png','03-mio-design-v01.png','04-makoto-design-v01.png','04-makoto-design-v02.png','05-key-visual-v01.png','05-key-visual-v02.png','07-social-preview-v01.png','07-social-preview-v02.png','07-social-preview-v03.png','08-x-header-v01.png','icon.svg','teaser-30s-v02.mp4','world-earth-orbit-v01.png'];
+const expectedAssets=['01-title-logo-v01.png','02-naoto-design-v01.png','03-mio-design-v01.png','04-makoto-design-v01.png','04-makoto-design-v02.png','05-key-visual-v01.png','05-key-visual-v02.png','07-social-preview-v01.png','07-social-preview-v02.png','07-social-preview-v03.png','08-x-header-v01.png','icon.svg','teaser-30s-v02.mp4','world-earth-orbit-v01.png','09-reception-woman-v01.png'];
 const expectedRoot=['README.md','.gitignore','.gitattributes','verify.mjs','public-manifest.json','docs'];
 assert.deepEqual(readdirSync(root).filter(name=>name!=='.git').sort(),expectedRoot.sort(),'Unexpected repository file');
 assert.deepEqual(readdirSync(path.join(root,'docs')).sort(),['.nojekyll','assets','index.html','style.css','world.css','world.js'],'Unexpected public entry');
@@ -36,7 +36,7 @@ assert(!html.includes('.chatgpt.site'),'Old hosting reference');
 assert(html.includes(`rel="canonical" href="${manifest.origin}/"`));
 assert(html.includes(`og:image" content="${manifest.origin}/assets/07-social-preview-v03.png"`));
 assert(html.includes('高瀬真琴'));
-assert.equal(manifest.throughEpisode,20,'Public scope must match the approved publication boundary');
+assert.equal(manifest.throughEpisode,30,'Public scope must match the approved publication boundary');
 assert(Array.isArray(manifest.episodes),'Published episode metadata missing');
 assert.deepEqual(manifest.episodes.map(e=>e.number),Array.from({length:manifest.throughEpisode+1},(_,i)=>i),'Episode gap or future episode');
 function groupBounds(number){const start=number<=10?0:Math.floor((number-1)/10)*10+1;return [start,start===0?10:start+9];}
@@ -45,7 +45,7 @@ assert.deepEqual(groupBounds(10),[0,10]);
 assert.deepEqual(groupBounds(11),[11,20]);
 assert.deepEqual(groupBounds(21),[21,30]);
 const groups=[...html.matchAll(/<details class="episode-group" id="episodes-(\d+)-(\d+)"(?: open)?><summary>[\s\S]*?<\/summary><div class="episode-list">([\s\S]*?)<\/div><\/details>/g)];
-assert.deepEqual(groups.map(g=>[Number(g[1]),Number(g[2])]),[[0,10],[11,20]],'Published episode grouping mismatch');
+assert.deepEqual(groups.map(g=>[Number(g[1]),Number(g[2])]),[[0,10],[11,20],[21,30]],'Published episode grouping mismatch');
 const episodeLinks=[];
 for(const group of groups){
  const links=[...group[3].matchAll(/<a href="([^"]+)"[^>]*aria-label="第(\d+)話 ([^"]+)を読む"><span>EPISODE \d+<\/span><strong>([^<]+)<\/strong>/g)];
@@ -60,9 +60,9 @@ for(const group of groups){
  }
 }
 assert.deepEqual(episodeLinks,manifest.episodes.map(e=>e.number),'Duplicate or missing published episode');
-assert(html.includes('第0話から第20話まで公開中。'));
+assert(html.includes('第0話から第30話まで公開中。'));
 assert(!html.includes('第0話から第10話まで掲載。'),'Stale publication count');
-assert(!html.includes('id="episodes-21-30"'),'Unpublished group is exposed');
+assert(html.includes('id="episodes-21-30" open'),'Newest published group should be available');
 assert(html.includes('class="hero-media"><img class="hero-art"'),'Hero artwork needs its own layout track');
 assert(!html.includes('class="hero-shade"'),'Full-cover image overlay is still enabled');
 const css=readFileSync(path.join(root,'docs/style.css'),'utf8');
@@ -74,7 +74,7 @@ assert(html.includes('poster="assets/05-key-visual-v02.png"'),'Updated video pos
 assert.equal((html.match(/assets\/04-makoto-design-v02\.png/g)||[]).length,3,'Updated Mako portrait and design links missing');
 assert.equal((html.match(/assets\/07-social-preview-v03\.png/g)||[]).length,4,'Updated card and sharing images missing');
 assert(!/assets\/(?:(?:04-makoto-design|05-key-visual)-v01|07-social-preview-v0[12])\.png/.test(html),'An active Mako image still uses a previous version');
-assert.equal((html.match(/<h3>UNKNOWN<\/h3>/g)||[]).length,2);
+assert.equal((html.match(/<h3>UNKNOWN<\/h3>/g)||[]).length,1);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(match=>match[1]);
 assert.equal(new Set(ids).size,ids.length,'Duplicate anchor');
 for(const match of html.matchAll(/(?:src|href|poster)="([^"]+)"/g)) {
@@ -86,12 +86,12 @@ for(const match of html.matchAll(/(?:src|href|poster)="([^"]+)"/g)) {
 assert(html.includes('controls playsinline')&&html.includes('assets/teaser-30s-v02.mp4'),'Instrumental video missing');
 assert(!/<track\b/.test(html),'Browser captions would duplicate burned-in subtitles');
 assert(html.includes('class="pv-transcript"'),'Accessible transcript missing');
-assert.equal(manifest.world.throughEpisode,20,'World guide must not exceed approved episode scope');
+assert.equal(manifest.world.throughEpisode,30,'World guide must not exceed approved episode scope');
 assert.deepEqual(manifest.world.locations,['earth','station']);
 assert.deepEqual(manifest.world.spots,['dining','work','cabin','window']);
 assert.equal(manifest.world.illustrationOnly,true);
-assert(html.includes('world.css?v=20261002-orbit-art'));
-assert(html.includes('src="world.js?v=20261002-station" defer'));
+assert(html.includes('world.css?v=20261003-receipt'));
+assert(html.includes('src="world.js?v=20261003-receipt" defer'));
 assert(html.includes('id="world-log"')||html.includes('class="world-log"'),'No-JS guide missing');
 assert(html.includes('施設の公式構造図や物理シミュレーションではありません'));
 assert(html.includes('id="world-fix" aria-pressed="true"'));
@@ -99,7 +99,7 @@ assert(!html.includes('公開済みの世界：地球。その他のエリアは
 const worldScript=readFileSync(path.join(root,'docs/world.js'),'utf8');
 const worldStyle=readFileSync(path.join(root,'docs/world.css'),'utf8');
 assert(!/\b(?:fetch|XMLHttpRequest|WebSocket|eval)\s*\(|localStorage|sessionStorage|innerHTML|document\.cookie/.test(worldScript),'World guide must be local, non-tracking and text-only');
-assert(!/HIDDEN_CANON|Lise|リセ|ミュウ|生体調整|若返り|秘密区画/.test(worldScript),'Unpublished world data');
+assert(!/HIDDEN_CANON|UNPUBLISHED|engineOnly|secretFacts|revealAtEpisode/.test(worldScript),'Non-public world metadata');
 assert(worldStyle.includes('@media(prefers-reduced-motion:reduce)'));
 assert(worldStyle.includes('[data-motion="paused"]'));
 assert(worldStyle.includes('max-width:760px'));
@@ -112,4 +112,37 @@ assert(orbit.readUInt32BE(16)>=1024&&orbit.readUInt32BE(20)>=1024,'Background re
 const ignored=readFileSync(path.join(root,'.gitignore'),'utf8');
 assert(ignored.split(/\r?\n/).includes('!/docs/world.css')&&ignored.split(/\r?\n/).includes('!/docs/world.js'),'WORLD assets must be explicitly allowed for Git');
 assert(ignored.split(/\r?\n/).includes('!/docs/assets/world-earth-orbit-v01.png'),'Earth background must be explicitly allowed for Git');
-console.log(JSON.stringify({verified:true,publicFiles:expectedFiles.length,unknownSlots:2,throughEpisode:manifest.throughEpisode,episodeLinks:episodeLinks.length,groups:groups.length,heroSeparated:true,worldLocations:manifest.world.locations,worldSpots:manifest.world.spots,worldIllustrationOnly:true,exactAllowlist:true,sha256:true}));
+assert.equal(manifest.characters.throughEpisode,30);
+assert.deepEqual(manifest.characters.revealed.map(c=>c.id),['reception-woman','station-desk']);
+assert.deepEqual(manifest.characters.revealed.map(c=>c.firstEpisode),[21,19]);
+assert.deepEqual(manifest.characters.revealed.map(c=>c.label),['受渡室の女性','笹倉さん']);
+assert.equal(manifest.characters.revealed[0].nameDisclosed,false);
+assert.equal(manifest.characters.illustrationOnly,true);
+const revealed=html.match(/<details class="character-reveal" id="character-21-30">([\s\S]*?)<\/details>/);
+assert(revealed,'New character introductions must be closed by default');
+assert(revealed[1].includes('第21〜30話を読んだ方向け'));
+for(const character of manifest.characters.revealed){
+ assert(revealed[1].includes('id="'+character.id+'"'),'Character outside reader gate');
+ assert(revealed[1].includes('初登場：第'+character.firstEpisode+'話を読む'));
+}
+assert.equal((revealed[1].match(/<dd>未判明<\/dd>/g)||[]).length,2);
+assert(html.includes('本文に未記載の造形は設定の確定を意味しません'));
+assert(html.includes('src="assets/09-reception-woman-v01.png"'));
+const portrait=readFileSync(path.join(root,'docs/assets/09-reception-woman-v01.png'));
+assert.equal(portrait.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+assert(portrait.readUInt32BE(16)>=1024&&portrait.readUInt32BE(20)>portrait.readUInt32BE(16));
+assert(ignored.split(/\r?\n/).includes('!/docs/assets/09-reception-woman-v01.png'));
+assert.equal(manifest.world.mealTerminal.illustrationOnly,true);
+assert.deepEqual(manifest.world.mealTerminal.ticketNumbers,['01','02','03']);
+assert.equal(manifest.world.mealTerminal.remoteRequests,false);
+assert.equal(manifest.world.mealTerminal.audio,false);
+assert(html.includes('id="meal-terminal" data-receipt="waiting" aria-labelledby="meal-title" hidden'));
+assert.deepEqual([...html.matchAll(/data-meal-ticket="([^"]+)"/g)].map(m=>m[1]),['01','02','03']);
+assert(html.includes('id="meal-status" role="status" aria-live="polite"'));
+assert(html.includes('番号と動きは紹介用イメージです'));
+assert(worldStyle.includes('.world-atlas[data-motion="paused"] .meal-bag{animation:none}'));
+assert(!/<audio\b|\bautoplay\b|<iframe\b/.test(html),'No automatic sound or external frames');
+const publicText=[html,css,worldStyle,worldScript,readFileSync(path.join(root,'README.md'),'utf8')].join('\n');
+assert(!/file:\/\/|[A-Z]:[\\/]|Users[\\/]|generated_images|\.prompt\.|OPENAI_API_KEY|AKIA[0-9A-Z]{16}/.test(publicText),'Private path, prompt or credential marker');
+assert(!/\b(?:fetch|XMLHttpRequest|WebSocket|eval|Audio)\s*\(|localStorage|sessionStorage|innerHTML|document\.cookie|setInterval/.test(worldScript),'No remote requests, tracking or sound');
+console.log(JSON.stringify({verified:true,publicFiles:expectedFiles.length,unknownSlots:1,throughEpisode:manifest.throughEpisode,episodeLinks:episodeLinks.length,groups:groups.length,heroSeparated:true,worldLocations:manifest.world.locations,worldSpots:manifest.world.spots,worldIllustrationOnly:true,readerGatedCharacters:2,mealTerminal:true,exactAllowlist:true,sha256:true}));
