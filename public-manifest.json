@@ -227,6 +227,11 @@
       "sha256": "511d5fc34dee6a2fcf942863176006bf2a564bd28a1a803912af062e23f4c2d2"
     },
     {
+      "path": "docs/assets/09-reception-woman-v02.png",
+      "bytes": 1936515,
+      "sha256": "2fd53010c9936a94e19b3b5fb35867c9d09fcbc34dc56e0676c646013205d107"
+    },
+    {
       "path": "docs/assets/icon.svg",
       "bytes": 424,
       "sha256": "de091eb46e2bfa24776aa49c6fbc887a31e2e9761c30071a3029f9616a573435"
@@ -244,7 +249,7 @@
     {
       "path": "docs/index.html",
       "bytes": 29870,
-      "sha256": "d29bd0f8496955171e803778e83a39cdd88fa0339f5c1885fdb0b715b50c6c70"
+      "sha256": "5f02b1382b30cf0c1c93605210b3993e1d3d53210894d9bd7ae408f1a6899ae0"
     },
     {
       "path": "docs/style.css",

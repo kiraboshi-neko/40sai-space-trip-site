@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.dirname(fileURLToPath(import.meta.url));
-const expectedAssets=['01-title-logo-v01.png','02-naoto-design-v01.png','03-mio-design-v01.png','04-makoto-design-v01.png','04-makoto-design-v02.png','05-key-visual-v01.png','05-key-visual-v02.png','07-social-preview-v01.png','07-social-preview-v02.png','07-social-preview-v03.png','08-x-header-v01.png','icon.svg','teaser-30s-v02.mp4','world-earth-orbit-v01.png','09-reception-woman-v01.png'];
+const expectedAssets=['01-title-logo-v01.png','02-naoto-design-v01.png','03-mio-design-v01.png','04-makoto-design-v01.png','04-makoto-design-v02.png','05-key-visual-v01.png','05-key-visual-v02.png','07-social-preview-v01.png','07-social-preview-v02.png','07-social-preview-v03.png','08-x-header-v01.png','icon.svg','teaser-30s-v02.mp4','world-earth-orbit-v01.png','09-reception-woman-v01.png','09-reception-woman-v02.png'];
 const expectedRoot=['README.md','.gitignore','.gitattributes','verify.mjs','public-manifest.json','docs'];
 assert.deepEqual(readdirSync(root).filter(name=>name!=='.git').sort(),expectedRoot.sort(),'Unexpected repository file');
 assert.deepEqual(readdirSync(path.join(root,'docs')).sort(),['.nojekyll','assets','index.html','style.css','world.css','world.js'],'Unexpected public entry');
@@ -127,11 +127,12 @@ for(const character of manifest.characters.revealed){
 }
 assert.equal((revealed[1].match(/<dd>未判明<\/dd>/g)||[]).length,2);
 assert(html.includes('本文に未記載の造形は設定の確定を意味しません'));
-assert(html.includes('src="assets/09-reception-woman-v01.png"'));
-const portrait=readFileSync(path.join(root,'docs/assets/09-reception-woman-v01.png'));
+assert(html.includes('src="assets/09-reception-woman-v02.png"'));
+assert(!html.includes('assets/09-reception-woman-v01.png'),'Previous reception portrait is still active');
+const portrait=readFileSync(path.join(root,'docs/assets/09-reception-woman-v02.png'));
 assert.equal(portrait.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
 assert(portrait.readUInt32BE(16)>=1024&&portrait.readUInt32BE(20)>portrait.readUInt32BE(16));
-assert(ignored.split(/\r?\n/).includes('!/docs/assets/09-reception-woman-v01.png'));
+assert(ignored.split(/\r?\n/).includes('!/docs/assets/09-reception-woman-v02.png'));
 assert.equal(manifest.world.mealTerminal.illustrationOnly,true);
 assert.deepEqual(manifest.world.mealTerminal.ticketNumbers,['01','02','03']);
 assert.equal(manifest.world.mealTerminal.remoteRequests,false);
