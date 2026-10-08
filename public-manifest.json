@@ -2,7 +2,7 @@
   "schema": "public-static-site-v1",
   "repository": "kiraboshi-neko/40sai-space-trip-site",
   "origin": "https://kiraboshi-neko.github.io/40sai-space-trip-site",
-  "throughEpisode": 30,
+  "throughEpisode": 40,
   "episodes": [
     {
       "number": 0,
@@ -158,6 +158,56 @@
       "number": 30,
       "title": "次に待つもの",
       "url": "https://ncode.syosetu.com/n0686mv/31/"
+    },
+    {
+      "number": 31,
+      "title": "おすすめの次に",
+      "url": "https://ncode.syosetu.com/n0686mv/32/"
+    },
+    {
+      "number": 32,
+      "title": "夜の窓の待ち合わせ",
+      "url": "https://ncode.syosetu.com/n0686mv/33/"
+    },
+    {
+      "number": 33,
+      "title": "親友の勤務先",
+      "url": "https://ncode.syosetu.com/n0686mv/34/"
+    },
+    {
+      "number": 34,
+      "title": "袋のままでは見えない",
+      "url": "https://ncode.syosetu.com/n0686mv/35/"
+    },
+    {
+      "number": 35,
+      "title": "窓の向こうで待っている",
+      "url": "https://ncode.syosetu.com/n0686mv/36/"
+    },
+    {
+      "number": 36,
+      "title": "一行のあとで",
+      "url": "https://ncode.syosetu.com/n0686mv/37/"
+    },
+    {
+      "number": 37,
+      "title": "名前をひとつ",
+      "url": "https://ncode.syosetu.com/n0686mv/38/"
+    },
+    {
+      "number": 38,
+      "title": "同じ一口の向こう",
+      "url": "https://ncode.syosetu.com/n0686mv/39/"
+    },
+    {
+      "number": 39,
+      "title": "箱から出てくるもの",
+      "url": "https://ncode.syosetu.com/n0686mv/40/"
+    },
+    {
+      "number": 40,
+      "title": "今度は食べる側へ",
+      "url": "https://ncode.syosetu.com/n0686mv/41/"
     }
   ],
   "files": [
@@ -232,9 +282,34 @@
       "sha256": "2fd53010c9936a94e19b3b5fb35867c9d09fcbc34dc56e0676c646013205d107"
     },
     {
+      "path": "docs/assets/10-meal-earth-v02.png",
+      "bytes": 2935592,
+      "sha256": "606fd360cb369a92f621fb66827b9ecbc290902dac93218789e7f9222661e701"
+    },
+    {
+      "path": "docs/assets/10-meal-orbit-v02.png",
+      "bytes": 2456274,
+      "sha256": "04b63fbf5d2ad11a6648a961e236d3971188aae1b58f7ee4d3ff83022966071e"
+    },
+    {
+      "path": "docs/assets/10-meal-pack-v02.png",
+      "bytes": 2670209,
+      "sha256": "9a11b8ab7b23ec4e2568e6e7acd1bfa45c8b7d3dd3cd31185b2317886a08d047"
+    },
+    {
+      "path": "docs/assets/11-pv02-poster-v01.jpg",
+      "bytes": 215144,
+      "sha256": "46fa5237e4e32a2d2af8e3368a2f39d5446630d5202f534ccd747a9f0d0d2498"
+    },
+    {
       "path": "docs/assets/icon.svg",
       "bytes": 424,
       "sha256": "de091eb46e2bfa24776aa49c6fbc887a31e2e9761c30071a3029f9616a573435"
+    },
+    {
+      "path": "docs/assets/pv02-ep40-60s-v03-starlight-room.mp4",
+      "bytes": 41467848,
+      "sha256": "e14fefd0398c3fc26ed3e62936016c3b653bb84fbdb1abc3f17930622116abea"
     },
     {
       "path": "docs/assets/teaser-30s-v02.mp4",
@@ -248,27 +323,27 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 29870,
-      "sha256": "5f02b1382b30cf0c1c93605210b3993e1d3d53210894d9bd7ae408f1a6899ae0"
+      "bytes": 42528,
+      "sha256": "91e841188b08aa0a240d61b6800acd75f6590948f22f81ae22d191068a6488d4"
     },
     {
       "path": "docs/style.css",
-      "bytes": 15496,
-      "sha256": "5f678b0f1414c20ff363b6e47d6911596c877102c31896e0255296db65742fb9"
+      "bytes": 16929,
+      "sha256": "54bf24119f5b58a65ec3e3e9212a90a4b8039398c1167ca2fa4ce65de75049a5"
     },
     {
       "path": "docs/world.css",
-      "bytes": 12243,
-      "sha256": "92d55a1c9dfd0911473298a98d9366ee6a3e28ae22836211595e54104f8a538e"
+      "bytes": 15572,
+      "sha256": "ad9881b4f0a226d92b7dcf03ee0577506b81cc9c076bbcf9f0f2d46a5b71858a"
     },
     {
       "path": "docs/world.js",
-      "bytes": 6373,
-      "sha256": "a0a83633477c24b2cc3413547fb4ab5cbb0788ca0766d97f8a3ce08fe0c1fc19"
+      "bytes": 9745,
+      "sha256": "3785ad50b14e12566a6e01a8f70db895972f60f00d8164b745a5e532e63ea515"
     }
   ],
   "world": {
-    "throughEpisode": 30,
+    "throughEpisode": 40,
     "locations": [
       "earth",
       "station"
@@ -277,7 +352,10 @@
       "dining",
       "work",
       "cabin",
-      "window"
+      "window",
+      "receiving",
+      "evaluation",
+      "briefing"
     ],
     "illustrationOnly": true,
     "mealTerminal": {
@@ -289,24 +367,109 @@
       "illustrationOnly": true,
       "remoteRequests": false,
       "audio": false
+    },
+    "mealPresentation": {
+      "modes": [
+        "bag",
+        "ground",
+        "orbit"
+      ],
+      "sourceEpisodes": [
+        34,
+        39
+      ],
+      "illustrationOnly": true,
+      "remoteRequests": false,
+      "audio": false,
+      "assets": {
+        "bag": "docs/assets/10-meal-pack-v02.png",
+        "ground": "docs/assets/10-meal-earth-v02.png",
+        "orbit": "docs/assets/10-meal-orbit-v02.png"
+      }
     }
   },
   "characters": {
-    "throughEpisode": 30,
+    "throughEpisode": 40,
     "revealed": [
       {
         "id": "reception-woman",
         "label": "受渡室の女性",
         "firstEpisode": 21,
-        "nameDisclosed": false
+        "nameDisclosed": false,
+        "readerGate": "character-21-30"
       },
       {
         "id": "station-desk",
         "label": "笹倉さん",
-        "firstEpisode": 19
+        "firstEpisode": 19,
+        "readerGate": "character-21-30"
+      },
+      {
+        "id": "rise",
+        "label": "リセ",
+        "firstEpisode": 21,
+        "nameDisclosed": true,
+        "nameDisclosedEpisode": 37,
+        "callNameOnly": true,
+        "readerGate": "character-31-40"
       }
     ],
-    "readerGate": "character-21-30",
-    "illustrationOnly": true
+    "illustrationOnly": true,
+    "readerGates": [
+      "character-21-30",
+      "character-31-40"
+    ],
+    "workRoles": {
+      "readerGate": "character-31-40",
+      "sourceEpisodes": [
+        33,
+        39,
+        40
+      ],
+      "ids": [
+        "naoto",
+        "mio",
+        "makoto"
+      ]
+    }
+  },
+  "pv": {
+    "first": {
+      "asset": "docs/assets/teaser-30s-v02.mp4",
+      "durationSeconds": 30
+    },
+    "second": {
+      "asset": "docs/assets/pv02-ep40-60s-v03-starlight-room.mp4",
+      "poster": "docs/assets/11-pv02-poster-v01.jpg",
+      "throughEpisode": 40,
+      "readerGate": "pv02-0-40",
+      "sourceEpisodes": [
+        0,
+        19,
+        21,
+        33,
+        34,
+        37,
+        38,
+        39,
+        40
+      ],
+      "durationSeconds": 60,
+      "framesPerSecond": 60,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "voice": false,
+      "autoplay": false,
+      "music": {
+        "title": "Starlight Room",
+        "provider": "ElevenMusic",
+        "attribution": "Made with ElevenMusic",
+        "attributionBurnedIn": true
+      },
+      "captions": "burned-in only",
+      "illustrationOnly": true
+    }
   }
 }
