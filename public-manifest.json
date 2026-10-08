@@ -217,6 +217,11 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "path": "docs/analytics.js",
+      "bytes": 8412,
+      "sha256": "e85193ff779f0de9cbdd0b9b647963939f42b2d2cf56c914acd2df560918d129"
+    },
+    {
       "path": "docs/assets/01-title-logo-v01.png",
       "bytes": 1129426,
       "sha256": "8dc8ca4a19abfd74bde937a1cdf8346bf6efc936a8ac59a048e879f6a07f6ebf"
@@ -323,13 +328,13 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 42528,
-      "sha256": "91e841188b08aa0a240d61b6800acd75f6590948f22f81ae22d191068a6488d4"
+      "bytes": 44402,
+      "sha256": "a17a02e1ba8ed277e4d87e044b262b71f409475b5b299830e101f0c869f4476d"
     },
     {
       "path": "docs/style.css",
-      "bytes": 16929,
-      "sha256": "54bf24119f5b58a65ec3e3e9212a90a4b8039398c1167ca2fa4ce65de75049a5"
+      "bytes": 17852,
+      "sha256": "07236350b463fc0ba1971b4ae7c1955f83d4af4afe0a2294fb806eecc6f5e5c4"
     },
     {
       "path": "docs/world.css",
@@ -471,5 +476,28 @@
       "captions": "burned-in only",
       "illustrationOnly": true
     }
+  },
+  "analytics": {
+    "provider": "Umami Cloud",
+    "enabled": true,
+    "websiteID": "5dd0ffe5-4dc6-4f44-8b26-810e4a3bead4",
+    "script": "https://cloud.umami.is/script.js",
+    "endpoint": "https://gateway.umami.is/api/send",
+    "productionPaths": [
+      "/40sai-space-trip-site/",
+      "/40sai-space-trip-site/index.html"
+    ],
+    "events": [
+      "narou_click",
+      "pv_start"
+    ],
+    "pageviews": "once per page load",
+    "xReferral": "normalized X only; other sources unspecified",
+    "optOutKey": "40sai-space-trip.analytics-excluded",
+    "respectDNT": true,
+    "respectGPC": true,
+    "automaticTracking": false,
+    "distinctID": false,
+    "sessionReplay": false
   }
 }

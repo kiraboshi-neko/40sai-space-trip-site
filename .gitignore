@@ -3,12 +3,14 @@
 !/.gitignore
 !/.gitattributes
 !/verify.mjs
+!/analytics.test.mjs
 !/public-manifest.json
 !/docs/
 !/docs/index.html
 !/docs/style.css
 !/docs/world.css
 !/docs/world.js
+!/docs/analytics.js
 !/docs/.nojekyll
 !/docs/assets/
 !/docs/assets/01-title-logo-v01.png
