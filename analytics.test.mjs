@@ -98,9 +98,18 @@ export function verifyAnalytics() {
     f.click('https://ncode.syosetu.com/n0686mv/1/', 'episode'); f.click('https://ncode.syosetu.com/n0686mv/41/', 'episode', {type: 'auxclick', button: 1});
     assert.equal(f.received.at(-2).data.episode, 0); assert.equal(f.received.at(-1).data.episode, 40);
     const count = f.received.length;
-    for (const href of ['https://ncode.syosetu.com/n0686mv/42/', 'https://ncode.syosetu.com/n0686mv/0/', 'https://ncode.syosetu.com/other/', 'https://example.invalid/']) f.click(href);
+    for (const href of ['https://ncode.syosetu.com/n0686mv/52/', 'https://ncode.syosetu.com/n0686mv/0/', 'https://ncode.syosetu.com/other/', 'https://example.invalid/']) f.click(href);
     f.click('https://ncode.syosetu.com/n0686mv/', 'other', {defaultPrevented: true});
     assert.equal(f.received.length, count);
+  });
+  for (const episode of [41,49,50]) check(() => {
+    const f=fixture(); f.load(); f.click('https://ncode.syosetu.com/n0686mv/'+(episode+1)+'/', 'episode');
+    assert.equal(f.received.length,2); assert.deepEqual(f.received[1].data,{placement:'episode',episode});
+  });
+  check(() => {
+    const f=fixture(); f.load();
+    const result=plain(f.window.spaceTripBeforeSend('event',{...f.received[0],name:'narou_click',data:{placement:'episode',episode:51,secret:'synthetic'}}));
+    assert.deepEqual(result.data,{placement:'episode'});
   });
   check(() => {
     const f = fixture(); f.load(); f.pv01.fire('play'); f.pv02.fire('pause'); assert.equal(f.received.length, 1);

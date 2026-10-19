@@ -1,0 +1,155 @@
+/* 50th-episode promotional lounge. Geometry is illustrative, never a ship specification. */
+.jubilee-dining-stage{position:relative;isolation:isolate;aspect-ratio:1.28;min-height:330px;overflow:hidden;border:1px solid #869eaa;border-radius:20px;background:radial-gradient(ellipse at 45% 15%,#293d51,#111f30 75%);box-shadow:inset 0 0 0 7px #172938,0 15px 35px #0004}
+.jubilee-cabin-window{position:absolute;inset:5% 6% 40%;border:8px solid #334654;border-radius:70px 70px 35px 35px;background:linear-gradient(#11213755,#091423a3),url("assets/12-anniversary-window-v01.png") 50% 50%/cover;box-shadow:0 0 0 2px #7893a16e,inset 0 0 30px #020c20;z-index:-1}
+.jubilee-cabin-light{position:absolute;inset:8% 4% auto;height:2px;background:linear-gradient(90deg,transparent,#c9dfd5a0,transparent);box-shadow:0 0 30px #b5dbe660;z-index:0}
+.jubilee-seat{position:absolute;bottom:20%;width:48%;height:75%;z-index:1;transition:opacity .25s,transform .25s}
+.jubilee-seat img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 8px 9px #0006)}
+.jubilee-seat-naoto img{object-fit:cover;object-position:50% 0}
+.jubilee-seat-naoto{left:1%;height:77%;width:55%}
+.jubilee-seat-mio{right:5%;height:82%;width:42%}
+.jubilee-seat>span{position:absolute;bottom:15%;left:50%;transform:translateX(-50%);padding:6px 13px;color:#f6e2b5;background:#132634ed;border:1px solid #bfa36e80;border-radius:4px;white-space:nowrap;font:10px/1.5 Georgia,serif;letter-spacing:.12em;z-index:2}
+.jubilee-seat small{display:block;letter-spacing:.03em;font:9px/1.7 sans-serif;color:#c5d4dc}
+.jubilee-metal-table{position:absolute;inset:63% -10% -7%;background:repeating-linear-gradient(3deg,#becad202 0 1px,transparent 1px 4px),linear-gradient(110deg,#75848a,#c8c7b8 35%,#6e7d87 70%,#293d50);transform:perspective(550px) rotateX(25deg);border:9px solid #334b5b;border-top-color:#e4e4d7;border-radius:32px 32px 12px 12px;box-shadow:0 -4px 0 #112a37,0 -12px 45px #08131f88;z-index:2}
+.jubilee-metal-table i{position:absolute;top:3%;left:50%;height:80%;width:2px;background:#344d5d88;box-shadow:1px 0 #d0d7d5}
+.jubilee-metal-table b{position:absolute;inset:auto 12% 20%;height:4px;background:linear-gradient(90deg,transparent,#e8dba840,transparent)}
+.jubilee-rich-vessel{position:absolute;bottom:11%;height:24%;padding:4px;border:3px solid #adc5c6;border-bottom-color:#28495a;border-radius:12px;background:#253f4a;box-shadow:0 10px 0 #142a35,0 18px 16px #11212d66,inset 0 0 0 2px #f5e5bb88;transform:perspective(800px) rotateX(12deg);z-index:4;transition:width .35s,left .35s,right .35s}
+.jubilee-rich-vessel img{width:100%;height:100%;object-fit:cover;border-radius:5px;object-position:50% 55%;display:block}
+.jubilee-rich-vessel:before,.jubilee-rich-vessel:after{content:"";position:absolute;width:13%;height:8px;border:1px solid #dbe1db;background:linear-gradient(#d8ddd7,#445f69);border-radius:2px;bottom:-8px}
+.jubilee-rich-vessel:before{left:15%}.jubilee-rich-vessel:after{right:15%}
+.jubilee-rich-vessel i{position:absolute;left:43%;width:14%;bottom:-17px;height:10px;border-radius:2px;background:linear-gradient(#667b86,#182b37);box-shadow:0 2px 0 #c7ccbe}
+.jubilee-vessel-a{left:6%;width:43%}.jubilee-vessel-b{right:9%;width:30%}
+.jubilee-reach-glow{position:absolute;width:var(--reach-size);height:24%;bottom:8%;border:2px dashed #8ae5dd;border-radius:50%;background:radial-gradient(ellipse,#9bebd60c,#b6f6e114);opacity:var(--reach-opacity);box-shadow:0 0 25px #5bdfda25;transform:translateX(-50%);z-index:5;pointer-events:none}
+.jubilee-reach-a{left:33%}.jubilee-reach-b{left:67%}
+.jubilee-table-caption{position:absolute;bottom:0;left:0;right:0;z-index:6;padding:12px 10px 10px;text-align:center;background:linear-gradient(transparent,#081a2be8 35%);color:#f4e2b7;font-size:12px;line-height:1.6;pointer-events:none}
+.jubilee-table-caption small{display:block;color:#d5e1e4;font-size:9px;letter-spacing:.03em}
+.jubilee-table-alert{position:absolute;top:5%;left:50%;transform:translateX(-50%);padding:10px 18px;background:#3b2b17ed;border:1px solid #e9c889;border-radius:30px;color:#ffe3a0;font-size:14px;white-space:nowrap;z-index:6;box-shadow:0 4px 25px #0003}
+.jubilee-empty-seat{position:absolute;right:13%;bottom:29%;width:25%;height:43%;border:2px solid #58798955;border-radius:40px 40px 12px 12px;background:linear-gradient(110deg,#253e4d70,#122a3c88);z-index:0;display:none}
+.jubilee-empty-seat span{position:absolute;left:0;right:0;top:40%;text-align:center;color:#a8c3ce;font-size:10px;letter-spacing:.05em}
+.jubilee-dining-stage[data-people="1"] .jubilee-seat-mio,.jubilee-dining-stage[data-people="1"] .jubilee-vessel-b,.jubilee-dining-stage[data-people="1"] .jubilee-reach-b{visibility:hidden}
+.jubilee-dining-stage[data-people="1"] .jubilee-empty-seat{display:block}
+.jubilee-dining-stage[data-fit="close"] .jubilee-reach-glow{border-color:#ffd28e;background:#f3b35e1c;box-shadow:0 0 35px #f1b95735}
+.jubilee-dining-stage[data-fit="close"]{border-color:#e9c889}
+.jubilee-dining-stage[data-vessel="compact"] .jubilee-vessel-a{left:16%;width:25%}
+.jubilee-dining-stage[data-vessel="compact"] .jubilee-reach-a{left:25%}
+.jubilee-dining-stage[data-vessel="compact"] .jubilee-reach-b{left:75%}
+.jubilee-dining-stage[data-vessel="compact"] .jubilee-vessel-b{right:13%;width:25%}
+.jubilee-portrait-note{font-size:10px;color:#a8bdc9;line-height:1.8;margin:13px 0 17px}
+.jubilee-overhead{border:1px solid #435e6e;border-radius:8px;background:#0a1926;overflow:hidden}
+.jubilee-overhead summary{padding:13px 16px;color:#c7d6dc;font-size:12px;cursor:pointer;min-height:44px}
+.jubilee-overhead .jubilee-fit-scene{margin:0 10px 10px;border:0}
+.jubilee-overhead .jubilee-fit-scene .fit-table{fill:#405767}
+.jubilee-overhead .jubilee-fit-scene .fit-body{fill:#a2b9bd}
+@media(max-width:1000px){.jubilee-dining-stage{aspect-ratio:1.55}.jubilee-seat-naoto{width:51%;left:4%;height:85%}.jubilee-seat-mio{height:88%;right:7%;width:39%}}
+@media(max-width:760px){.jubilee-dining-stage{aspect-ratio:1.05;min-height:280px;border-radius:12px}.jubilee-seat-naoto{width:61%;left:-3%;height:73%;bottom:22%}.jubilee-seat-mio{width:47%;right:0;height:80%;bottom:22%}.jubilee-cabin-window{inset:5% 4% 38%;border-width:5px;border-radius:35px 35px 15px 15px}.jubilee-seat>span{bottom:16%;padding:4px 6px;font-size:8px}.jubilee-seat small{font-size:8px}.jubilee-rich-vessel{height:24%;padding:2px;border-width:2px;border-radius:6px;bottom:12%}.jubilee-rich-vessel img{border-radius:3px}.jubilee-table-caption{font-size:10px;padding-top:12px}.jubilee-table-caption small{font-size:8px}.jubilee-table-alert{padding:7px 12px;font-size:12px}.jubilee-vessel-a{left:4%;width:45%}.jubilee-vessel-b{right:5%;width:32%}.jubilee-portrait-note{font-size:10px}.jubilee-dining-stage[data-vessel="compact"] .jubilee-vessel-a{left:12%;width:27%}.jubilee-dining-stage[data-vessel="compact"] .jubilee-vessel-b{right:10%;width:27%}}
+.jubilee-section{--gold:#f5d89b;--gold-line:#99815a;--j-muted:#bdc9d6;position:relative;background:radial-gradient(ellipse at 85% 0,#23435166,transparent 55%),#090f1e;padding-top:90px;padding-bottom:100px;isolation:isolate}
+.jubilee-section [hidden]{display:none!important}
+.jubilee-heading{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:35px;margin-bottom:32px}
+.jubilee-number{position:relative;font-family:Georgia,serif;font-size:clamp(100px,13vw,180px);line-height:.9;letter-spacing:-.08em;color:var(--gold);text-shadow:0 0 65px #ebbd6330}
+.jubilee-number:after{content:"";position:absolute;left:-12%;right:-25%;height:25%;top:44%;border:1px solid #e8d29c99;border-top-color:transparent;border-radius:50%;transform:rotate(-20deg)}
+.jubilee-kicker{font-size:11px;letter-spacing:.2em;color:var(--gold);margin:0 0 12px}
+.jubilee-heading h2{font-size:clamp(25px,3.1vw,43px);line-height:1.65;letter-spacing:.05em;margin:0 0 13px}
+.jubilee-heading .jubilee-intro{font-size:14px;color:var(--j-muted);margin:0}
+.jubilee-hero-link{border:1px solid #bea16a;color:#f5d89b;background:#201c2660;font-size:13px}
+.jubilee-reveal{border:1px solid #897553;border-radius:16px;background:linear-gradient(140deg,#12212f,#0a1423);overflow:hidden;box-shadow:0 24px 80px #0004}
+.jubilee-reveal>summary{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;list-style:none;cursor:pointer;padding:26px 30px;background:linear-gradient(100deg,#4d3e252e,transparent)}
+.jubilee-reveal>summary::-webkit-details-marker{display:none}
+.jubilee-reveal>summary>span{font-size:11px;letter-spacing:.09em;color:var(--gold)}
+.jubilee-reveal>summary strong{font-size:21px;letter-spacing:.04em}
+.jubilee-reveal>summary:after{content:"＋";font-size:26px;margin-left:auto;color:var(--gold)}
+.jubilee-reveal[open]>summary:after{content:"−"}
+.jubilee-reveal>summary:focus-visible{outline:3px solid var(--gold);outline-offset:-4px}
+.jubilee-scope{color:var(--j-muted);font-size:12px;margin:0;padding:0 30px 24px;line-height:1.9}
+.jubilee-toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding:16px 24px;border-block:1px solid #46606b88;background:#091320}
+.jubilee-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.jubilee-section button{font:inherit;cursor:pointer}
+.jubilee-tabs button{min-height:46px;padding:9px 15px;background:transparent;color:#b9c9d4;border:1px solid transparent;border-radius:5px;font-size:13px}
+.jubilee-tabs button[aria-selected="true"]{background:#e3c89415;color:var(--gold);border-color:#b49c6a}
+.jubilee-quiet-button{min-height:44px;padding:8px 10px;border:1px solid #48606c;background:transparent;color:#bfced6;border-radius:4px;font-size:11px!important}
+.jubilee-quiet-button:disabled{cursor:default;opacity:.7}
+.jubilee-panel{padding:26px}
+.jubilee-window{position:relative;aspect-ratio:1.9;min-height:330px;overflow:hidden;border-radius:60px 60px 40px 40px;border:12px solid #283b49;outline:1px solid #74818a;box-shadow:inset 0 0 0 2px #c6d5d733,0 16px 40px #0005;background:#060d1d;isolation:isolate}
+.jubilee-window-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.04);animation:jubilee-drift 40s ease-in-out infinite alternate;z-index:-2}
+.jubilee-window:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#07111ded,transparent 75%),linear-gradient(100deg,#0b172549,transparent);z-index:-1}
+.jubilee-window-top{position:absolute;left:26px;right:26px;top:19px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:10px;letter-spacing:.13em;color:#d5e1e5}
+.jubilee-window-top span:last-child{color:#f9e4bb}
+.jubilee-window-caption{position:absolute;bottom:34px;left:32px;right:32px;max-width:570px;z-index:2}
+.jubilee-window-caption h3{font-size:clamp(21px,2.6vw,34px);line-height:1.6;margin:0 0 10px;text-shadow:0 2px 12px #000}
+.jubilee-window-caption p{font-size:13px;color:#d4e1e7;margin:0;max-width:440px;line-height:1.9}
+.jubilee-ship-view{object-position:58% 42%}
+.jubilee-window-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:24px 0 15px}
+.jubilee-window-controls button{min-height:46px;min-width:175px;border:1px solid #506875;border-radius:5px;background:#0c1c2b;color:#c3d4dd;padding:10px 16px;font-size:13px}
+.jubilee-window-controls button[aria-pressed="true"]{border-color:var(--gold);background:#3d332526;color:var(--gold)}
+.jubilee-note{color:#a1b6c3;font-size:11px;line-height:1.9;margin:12px 0 0}
+.jubilee-lab-layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:24px;align-items:start}
+.jubilee-lab-title{font-size:22px;line-height:1.65;margin:0 0 8px}
+.jubilee-lab-intro{margin:0 0 20px;color:var(--j-muted);font-size:13px}
+.jubilee-fit-scene{position:relative;background:radial-gradient(ellipse at 50% 45%,#21455050,transparent 75%),#0b1928;border:1px solid #385563;border-radius:10px;overflow:hidden}
+.jubilee-fit-scene svg{display:block;width:100%;height:auto}
+.jubilee-fit-scene .fit-table{fill:#1d3442;stroke:#8aabb4;stroke-width:2}
+.jubilee-fit-scene .fit-guides{fill:none;stroke:#3d6172;stroke-width:1;stroke-dasharray:5 8}
+.jubilee-fit-scene .fit-body{fill:#6e969e;stroke:#a7ccd0;stroke-width:2}
+.jubilee-fit-scene .fit-arm{fill:none;stroke:#afcdd1;stroke-width:17;stroke-linecap:round;transition:transform .1s linear}
+.jubilee-fit-scene .fit-vessel{fill:#a8c0be22;stroke:var(--gold);stroke-width:3}
+.jubilee-fit-scene .fit-vessel-detail{fill:none;stroke:#ead7a176;stroke-width:2}
+.jubilee-fit-scene .fit-overlap{fill:#f4b85f15;stroke:#f0bc6b;stroke-width:2;stroke-dasharray:6 7;opacity:0;transition:opacity .3s}
+.jubilee-fit-scene[data-fit="close"] .fit-overlap{opacity:1}
+.jubilee-fit-scene[data-people="1"] .fit-neighbor{visibility:hidden}
+.jubilee-fit-scene .fit-compact{display:none}
+.jubilee-fit-scene[data-vessel="compact"] .fit-trial{display:none}
+.jubilee-fit-scene[data-vessel="compact"] .fit-compact{display:block}
+.jubilee-fit-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 22px;padding:5px 12px 16px;font-size:12px;color:#c5d6dd}
+.jubilee-fit-legend i{display:inline-block;vertical-align:middle;width:18px;height:9px;margin-right:7px;border:1px solid var(--gold);border-radius:2px}
+.jubilee-fit-legend span:last-child i{background:#afcdd1;border:0;height:5px}
+.jubilee-options{display:grid;gap:18px}
+.jubilee-options fieldset{padding:0;border:0;margin:0;min-width:0}
+.jubilee-options legend{color:var(--gold);font-size:12px;margin-bottom:9px;letter-spacing:.05em}
+.jubilee-choice{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;margin:5px 0;border:1px solid #385563;border-radius:5px;color:#bdcdd6;background:#102232;font-size:13px;cursor:pointer}
+.jubilee-choice:has(input:checked){border-color:var(--gold-line);color:#f6e1b5;background:#362d2429}
+.jubilee-choice input{accent-color:var(--gold);width:16px;height:16px;flex-shrink:0}
+.jubilee-reach{margin:20px 0 0;padding:16px 0;border-block:1px solid #365263}
+.jubilee-reach label{display:block;font-size:13px;color:#d0dee5;margin-bottom:14px}
+.jubilee-reach input{display:block;width:100%;height:44px;accent-color:var(--gold)}
+.jubilee-range-ends{display:flex;justify-content:space-between;color:#9eb6c3;font-size:11px}
+.jubilee-result{margin-top:20px;min-height:108px;border-left:2px solid var(--gold);padding-left:16px}
+.jubilee-result h4{font-size:17px;margin:0 0 7px;line-height:1.7}
+.jubilee-result p{font-size:13px;color:var(--j-muted);margin:0;line-height:1.9}
+.jubilee-trail-map{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:8px 0 30px;padding:18px 0}
+.jubilee-trail-map:before{content:"";position:absolute;top:52px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,#537b82,#e6ce92);pointer-events:none}
+.jubilee-trail-map button{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;min-height:100px;padding:10px 3px;border:1px solid transparent;background:transparent;color:#b2c7d2;font-size:11px;border-radius:8px}
+.jubilee-trail-map button>b{display:grid;place-items:center;width:48px;height:48px;border:1px solid #72949d;border-radius:50%;background:#112535;color:#d8e8eb;font-size:14px;font-weight:400;z-index:1}
+.jubilee-trail-map button[aria-pressed="true"]{color:var(--gold);border-color:#b79d6244;background:#ead5a309}
+.jubilee-trail-map button[aria-pressed="true"]>b{color:var(--gold);border-color:var(--gold);box-shadow:0 0 30px #e6ce9222}
+.jubilee-trail-detail{position:relative;padding:28px;border:1px solid #47616c;border-radius:10px;background:linear-gradient(125deg,#1b3441,#0b1727);min-height:228px;overflow:hidden}
+.jubilee-trail-detail>span{color:var(--gold);font-size:11px;letter-spacing:.16em}
+.jubilee-trail-detail h3{font-size:25px;line-height:1.7;margin:12px 0}
+.jubilee-trail-detail p{font-size:14px;line-height:1.9;color:#bbced8;margin:0 0 20px;max-width:620px}
+.jubilee-trail-detail a{font-size:12px;color:var(--gold);text-decoration:underline;text-underline-offset:5px}
+.jubilee-trail-detail a:not([href]){text-decoration:none;color:var(--j-muted)}
+.jubilee-bottom{border-top:1px solid #665a4277;padding:22px 26px;background:#091421}
+.jubilee-stamps{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.jubilee-stamps>span{border-bottom:1px solid #546571;padding:6px 0;margin-right:14px;color:#8398a8;font-size:12px}
+.jubilee-stamps>span[data-done="true"]{border-color:var(--gold);color:var(--gold)}
+.jubilee-stamps>span:before{content:"○";margin-right:8px}
+.jubilee-stamps>span[data-done="true"]:before{content:"✦"}
+.jubilee-progress-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:12px}
+.jubilee-progress-row p{font-size:12px;color:#acbecb;margin:0}
+.jubilee-pass{position:relative;margin-top:24px;isolation:isolate;overflow:hidden;border:1px solid #d9bc79;border-radius:10px;background:radial-gradient(ellipse at 90% 0,#dfbf6722,transparent 65%),linear-gradient(120deg,#25363e,#111f2d);padding:28px 30px}
+.jubilee-pass:before{content:"50";position:absolute;right:22px;top:-32px;font:180px/1.2 Georgia,serif;color:#cbb77c16;z-index:-1}
+.jubilee-pass>small{color:var(--gold);font-size:10px;letter-spacing:.18em}
+.jubilee-pass h3{font-size:24px;line-height:1.7;margin:10px 0}
+.jubilee-pass p{color:#c1d1d9;font-size:13px;margin:0 0 18px}
+.jubilee-pass button{min-height:46px;padding:10px 20px;border:1px solid #e6cb8e;background:#e6cb8e;color:#12232e;border-radius:5px;font-size:13px;font-weight:700}
+.jubilee-pass-status{min-height:22px;color:#efdcb4!important;font-size:12px!important;margin:16px 0 0!important}
+.jubilee-stars{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(circle at 15% 28%,#ffe4ab 0 1px,transparent 2px),radial-gradient(circle at 86% 67%,#ffe4ab 0 1px,transparent 2px),radial-gradient(circle at 47% 78%,#bce9e1 0 1px,transparent 2px);background-size:113px 151px,173px 117px,137px 193px;transition:opacity 1.5s;z-index:-1}
+#anniversary-50[data-celebrate="true"] .jubilee-stars{opacity:.85}
+#anniversary-50[data-celebrate="true"] .jubilee-pass{box-shadow:0 0 45px #e6cb8e18}
+.jubilee-footer-note{font-size:11px;color:#9aafbc;padding:18px 26px;margin:0;border-top:1px solid #365263;line-height:1.9}
+#anniversary-50[data-motion="paused"] *,#anniversary-50[data-active="false"] *{animation-play-state:paused!important}
+#anniversary-50[data-motion="paused"] *{transition:none!important}
+#anniversary-50:not([data-panel="window"]) .jubilee-window-art{animation-play-state:paused!important}
+@keyframes jubilee-drift{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.1) translate(-1%,1%)}}
+@media(max-width:1000px){.jubilee-lab-layout{grid-template-columns:minmax(0,1fr)}.jubilee-options{grid-template-columns:1fr 1fr}.jubilee-trail-map{gap:5px}.jubilee-trail-map button{font-size:10px}.jubilee-toolbar{padding:14px 18px}.jubilee-tabs button{padding:8px 12px}}
+@media(max-width:760px){.jubilee-section{padding-top:65px;padding-bottom:70px}.jubilee-heading{gap:23px;grid-template-columns:80px minmax(0,1fr)}.jubilee-number{font-size:100px}.jubilee-heading h2{font-size:23px}.jubilee-heading .jubilee-intro{font-size:12px}.jubilee-kicker{font-size:9px;letter-spacing:.12em}.jubilee-reveal>summary{padding:22px 18px;gap:8px}.jubilee-reveal>summary>span{font-size:10px;width:100%}.jubilee-reveal>summary strong{font-size:18px}.jubilee-scope{padding:0 18px 20px;font-size:11px}.jubilee-panel{padding:18px 14px}.jubilee-toolbar{gap:10px}.jubilee-tabs{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.jubilee-tabs button{font-size:11px;padding:8px 6px;white-space:nowrap}.jubilee-window{min-height:350px;aspect-ratio:auto;border-width:7px;border-radius:36px}.jubilee-window-top{left:15px;right:15px;font-size:8px;letter-spacing:.05em;top:15px}.jubilee-window-caption{left:20px;right:18px;bottom:24px}.jubilee-window-caption h3{font-size:22px}.jubilee-window-caption p{font-size:12px}.jubilee-station-silhouette{width:38%;top:24%;right:6%}.jubilee-window-controls{gap:8px;margin:20px 0 12px}.jubilee-window-controls button{min-width:0;flex:1;font-size:11px;padding:9px}.jubilee-lab-title{font-size:19px}.jubilee-lab-intro{font-size:12px}.jubilee-options{gap:12px}.jubilee-choice{padding:8px;font-size:11px;gap:7px}.jubilee-options legend{font-size:11px}.jubilee-trail-map{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.jubilee-trail-map:before{display:none}.jubilee-trail-map button{min-height:90px;font-size:11px}.jubilee-trail-detail{padding:22px 18px;min-height:275px}.jubilee-trail-detail h3{font-size:21px}.jubilee-trail-detail p{font-size:13px}.jubilee-bottom{padding:20px 18px}.jubilee-stamps{gap:10px}.jubilee-stamps>span{font-size:10px;margin-right:8px}.jubilee-pass{padding:23px 20px}.jubilee-pass h3{font-size:22px}.jubilee-footer-note{padding:16px 18px;font-size:10px}}
+@media(max-width:380px){.jubilee-heading{grid-template-columns:1fr;gap:25px}.jubilee-number{font-size:90px;width:100px}.jubilee-heading h2{font-size:24px}.jubilee-tabs button{font-size:10px}.jubilee-options{grid-template-columns:1fr}.jubilee-window-caption h3{font-size:20px}}
+@media(max-width:760px){.jubilee-reveal>summary{display:grid;grid-template-columns:minmax(0,1fr) 24px;gap:8px 12px}.jubilee-reveal>summary>span,.jubilee-reveal>summary>strong{grid-column:1;min-width:0}.jubilee-reveal>summary:after{grid-column:2;grid-row:1/3;align-self:center;margin:0}}
+@media(prefers-reduced-motion:reduce){#anniversary-50 *,#anniversary-50 *:before,#anniversary-50 *:after{animation:none!important;transition:none!important}}

@@ -2,7 +2,35 @@
   "schema": "public-static-site-v1",
   "repository": "kiraboshi-neko/40sai-space-trip-site",
   "origin": "https://kiraboshi-neko.github.io/40sai-space-trip-site",
-  "throughEpisode": 40,
+  "throughEpisode": 50,
+  "release": {
+    "requiredThroughEpisode": 50,
+    "notBefore": "2026-10-19T10:00:00.000Z",
+    "liveVerificationRequired": true
+  },
+  "anniversary": {
+    "throughEpisode": 50,
+    "readerGate": "jubilee-reader-gate",
+    "panels": [
+      "window",
+      "fit",
+      "trail"
+    ],
+    "shipState": "docked",
+    "sourceEpisodes": [
+      0,
+      13,
+      18,
+      21,
+      37,
+      49,
+      50
+    ],
+    "illustrationOnly": true,
+    "remoteRequests": false,
+    "audio": false,
+    "persistence": false
+  },
   "episodes": [
     {
       "number": 0,
@@ -208,6 +236,56 @@
       "number": 40,
       "title": "今度は食べる側へ",
       "url": "https://ncode.syosetu.com/n0686mv/41/"
+    },
+    {
+      "number": 41,
+      "title": "ひと口の名前",
+      "url": "https://ncode.syosetu.com/n0686mv/42/"
+    },
+    {
+      "number": 42,
+      "title": "二人分の寄り道",
+      "url": "https://ncode.syosetu.com/n0686mv/43/"
+    },
+    {
+      "number": 43,
+      "title": "俺たちの知らない夕飯",
+      "url": "https://ncode.syosetu.com/n0686mv/44/"
+    },
+    {
+      "number": 44,
+      "title": "残したい香り",
+      "url": "https://ncode.syosetu.com/n0686mv/45/"
+    },
+    {
+      "number": 45,
+      "title": "見ないふりの下手な男",
+      "url": "https://ncode.syosetu.com/n0686mv/46/"
+    },
+    {
+      "number": 46,
+      "title": "灯りが変わる時",
+      "url": "https://ncode.syosetu.com/n0686mv/47/"
+    },
+    {
+      "number": 47,
+      "title": "冷めたって、夕飯だ",
+      "url": "https://ncode.syosetu.com/n0686mv/48/"
+    },
+    {
+      "number": 48,
+      "title": "故郷を持っていく",
+      "url": "https://ncode.syosetu.com/n0686mv/49/"
+    },
+    {
+      "number": 49,
+      "title": "帰ってきたら",
+      "url": "https://ncode.syosetu.com/n0686mv/50/"
+    },
+    {
+      "number": 50,
+      "title": "知らない船の食卓",
+      "url": "https://ncode.syosetu.com/n0686mv/51/"
     }
   ],
   "files": [
@@ -218,8 +296,8 @@
     },
     {
       "path": "docs/analytics.js",
-      "bytes": 8412,
-      "sha256": "e85193ff779f0de9cbdd0b9b647963939f42b2d2cf56c914acd2df560918d129"
+      "bytes": 8457,
+      "sha256": "3256ddd4830d2ac492a24f7d75e4b371c61b39391d6aee13f18e8913f33555cf"
     },
     {
       "path": "docs/assets/01-title-logo-v01.png",
@@ -307,6 +385,21 @@
       "sha256": "46fa5237e4e32a2d2af8e3368a2f39d5446630d5202f534ccd747a9f0d0d2498"
     },
     {
+      "path": "docs/assets/12-anniversary-window-v01.png",
+      "bytes": 2521020,
+      "sha256": "5c211974eb329a1d10c847ee4020d94f25bb3f37e6e461b4ca9896ba435350fe"
+    },
+    {
+      "path": "docs/assets/13-naoto-lounge-v01.png",
+      "bytes": 1305534,
+      "sha256": "d10638dc798370c56bff54d73d2a4ff7a5a07559d75a1067ac74b9d9b7408796"
+    },
+    {
+      "path": "docs/assets/14-mio-lounge-v02.png",
+      "bytes": 1824537,
+      "sha256": "67ae223100af1c3418057c05861facf20384f967b46d5c99d328e8e5bb80a8c7"
+    },
+    {
       "path": "docs/assets/icon.svg",
       "bytes": 424,
       "sha256": "de091eb46e2bfa24776aa49c6fbc887a31e2e9761c30071a3029f9616a573435"
@@ -328,13 +421,23 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 44402,
-      "sha256": "a17a02e1ba8ed277e4d87e044b262b71f409475b5b299830e101f0c869f4476d"
+      "bytes": 59990,
+      "sha256": "a99175d3ff8e666222996f427385a076ae1449f5df2d587c26aa34131f42d64d"
+    },
+    {
+      "path": "docs/jubilee.css",
+      "bytes": 21576,
+      "sha256": "adcb81da85c9dd2cce322fa017beff719664f82cf28ff87cc31b5b148700a105"
+    },
+    {
+      "path": "docs/jubilee.mjs",
+      "bytes": 12660,
+      "sha256": "72eb878a8be6e444bc0122408458e2d44b1217ab1fd0416aebac054d12033bc1"
     },
     {
       "path": "docs/style.css",
-      "bytes": 17852,
-      "sha256": "07236350b463fc0ba1971b4ae7c1955f83d4af4afe0a2294fb806eecc6f5e5c4"
+      "bytes": 17895,
+      "sha256": "0c42268f16112732c317f0b784c9ca02ac6aa6b6b4da5b1d0dc000964ac2e666"
     },
     {
       "path": "docs/world.css",
@@ -348,7 +451,7 @@
     }
   ],
   "world": {
-    "throughEpisode": 40,
+    "throughEpisode": 50,
     "locations": [
       "earth",
       "station"

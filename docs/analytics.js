@@ -7,6 +7,7 @@
   const toggle = document.getElementById('analytics-toggle');
   const origin = 'https://kiraboshi-neko.github.io';
   const sitePath = '/40sai-space-trip-site/';
+  const maxEpisode = 50;
   const storageKey = '40sai-space-trip.analytics-excluded';
   const website = config?.dataset.websiteId;
   const enabled = config?.dataset.enabled === 'true';
@@ -116,7 +117,7 @@
     if (!payload.name) return {...base};
     if (payload.name === 'narou_click' && placements.includes(payload.data?.placement)) {
       const data = {placement: payload.data.placement};
-      if (Number.isInteger(payload.data.episode) && payload.data.episode >= 0 && payload.data.episode <= 40) data.episode = payload.data.episode;
+      if (Number.isInteger(payload.data.episode) && payload.data.episode >= 0 && payload.data.episode <= maxEpisode) data.episode = payload.data.episode;
       return {...base, name: 'narou_click', data};
     }
     if (payload.name === 'pv_start' && ['pv01', 'pv02'].includes(payload.data?.video)) {
@@ -145,7 +146,7 @@
     try { destination = new URL(link.href); } catch { return; }
     if (destination.origin !== 'https://ncode.syosetu.com') return;
     const chapter = destination.pathname.match(/^\/n0686mv\/(\d+)\/$/);
-    if (destination.pathname !== '/n0686mv/' && !(chapter && Number(chapter[1]) >= 1 && Number(chapter[1]) <= 41)) return;
+    if (destination.pathname !== '/n0686mv/' && !(chapter && Number(chapter[1]) >= 1 && Number(chapter[1]) <= maxEpisode + 1)) return;
     const placement = link.closest('header') ? 'header' : link.closest('#top') ? 'hero' :
       link.closest('#episode') ? 'episode' : link.closest('#world') ? 'world' :
       link.closest('#character') ? 'character' : link.closest('footer') ? 'footer' : 'other';
