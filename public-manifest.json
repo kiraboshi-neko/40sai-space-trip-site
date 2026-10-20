@@ -8,6 +8,43 @@
     "notBefore": "2026-10-19T10:00:00.000Z",
     "liveVerificationRequired": true
   },
+  "readingPlatforms": {
+    "defaultGroup": "episodes-0-10",
+    "scopeNote": "reading-scope",
+    "narou": {
+      "label": "小説家になろう",
+      "workURL": "https://ncode.syosetu.com/n0686mv/",
+      "linkedThroughEpisode": 50
+    },
+    "kakuyomu": {
+      "label": "カクヨム",
+      "workURL": "https://kakuyomu.jp/works/11054822665065781184",
+      "linkedThroughEpisode": 3,
+      "checkedOn": "2026-10-20",
+      "episodes": [
+        {
+          "number": 0,
+          "title": "会社命令で宇宙へ",
+          "url": "https://kakuyomu.jp/works/11054822665065781184/episodes/11054822665065844134"
+        },
+        {
+          "number": 1,
+          "title": "落ちる予定の検査",
+          "url": "https://kakuyomu.jp/works/11054822665065781184/episodes/11054822665071633032"
+        },
+        {
+          "number": 2,
+          "title": "出張届の行き先",
+          "url": "https://kakuyomu.jp/works/11054822665065781184/episodes/11054822665071711589"
+        },
+        {
+          "number": 3,
+          "title": "正解は、止めること",
+          "url": "https://kakuyomu.jp/works/11054822665065781184/episodes/11054822665071827483"
+        }
+      ]
+    }
+  },
   "anniversary": {
     "throughEpisode": 50,
     "readerGate": "jubilee-reader-gate",
@@ -421,8 +458,8 @@
     },
     {
       "path": "docs/index.html",
-      "bytes": 59990,
-      "sha256": "a99175d3ff8e666222996f427385a076ae1449f5df2d587c26aa34131f42d64d"
+      "bytes": 76189,
+      "sha256": "294e0b1ef7c12211754812c7b41505d0faf390e387af47ffe890809b18c83d82"
     },
     {
       "path": "docs/jubilee.css",
@@ -436,8 +473,8 @@
     },
     {
       "path": "docs/style.css",
-      "bytes": 17895,
-      "sha256": "0c42268f16112732c317f0b784c9ca02ac6aa6b6b4da5b1d0dc000964ac2e666"
+      "bytes": 21535,
+      "sha256": "a0e6f5fc7b8dcdd6a8e59dc162d9f805640fced1840cc75d2ff7cb17e3a6a3d9"
     },
     {
       "path": "docs/world.css",

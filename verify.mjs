@@ -5,11 +5,12 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {verifyAnalytics} from './analytics.test.mjs';
 import {verifyJubilee} from './jubilee.test.mjs';
+import {verifyReading,verifyKakuyomuPublicationProof} from './reading.test.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const expectedAssets=['01-title-logo-v01.png','02-naoto-design-v01.png','03-mio-design-v01.png','04-makoto-design-v01.png','04-makoto-design-v02.png','05-key-visual-v01.png','05-key-visual-v02.png','07-social-preview-v01.png','07-social-preview-v02.png','07-social-preview-v03.png','08-x-header-v01.png','icon.svg','teaser-30s-v02.mp4','world-earth-orbit-v01.png','09-reception-woman-v01.png','09-reception-woman-v02.png','10-meal-pack-v02.png','10-meal-earth-v02.png','10-meal-orbit-v02.png','pv02-ep40-60s-v03-starlight-room.mp4','11-pv02-poster-v01.jpg'];
 expectedAssets.push('12-anniversary-window-v01.png');
 expectedAssets.push('13-naoto-lounge-v01.png','14-mio-lounge-v02.png');
-const expectedRoot=['README.md','.gitignore','.gitattributes','verify.mjs','analytics.test.mjs','jubilee.test.mjs','public-manifest.json','docs'];
+const expectedRoot=['README.md','.gitignore','.gitattributes','verify.mjs','analytics.test.mjs','reading.test.mjs','jubilee.test.mjs','public-manifest.json','docs'];
 assert.deepEqual(readdirSync(root).filter(name=>name!=='.git').sort(),expectedRoot.sort(),'Unexpected repository file');
 assert.deepEqual(readdirSync(path.join(root,'docs')).sort(),['.nojekyll','analytics.js','assets','index.html','jubilee.css','jubilee.mjs','style.css','world.css','world.js'].sort(),'Unexpected public entry');
 assert.deepEqual(readdirSync(path.join(root,'docs/assets')).sort(),expectedAssets.sort(),'Unexpected public asset');
@@ -55,22 +56,24 @@ const expectedGroups=[[0,10],[11,20],[21,30],[31,40],...(manifest.throughEpisode
 assert.deepEqual(groups.map(g=>[Number(g[1]),Number(g[2])]),expectedGroups,'Published episode grouping mismatch');
 const episodeLinks=[];
 for(const group of groups){
- const links=[...group[3].matchAll(/<a href="([^"]+)"[^>]*aria-label="第(\d+)話 ([^"]+)を読む"><span>EPISODE \d+<\/span><strong>([^<]+)<\/strong>/g)];
+ const links=[...group[3].matchAll(/<article class="episode-entry" data-episode="(\d+)">([\s\S]*?)<\/article>/g)];
  assert.equal(links.length,Number(group[2])-Number(group[1])+1,'Missing or duplicate group links');
  for(const link of links){
-  const number=Number(link[2]),record=manifest.episodes.find(e=>e.number===number);
+  const number=Number(link[1]),record=manifest.episodes.find(e=>e.number===number);
   assert(record&&number<=manifest.throughEpisode,'Unpublished episode link');
   assert.deepEqual(groupBounds(number),[Number(group[1]),Number(group[2])],'Episode in the wrong group');
-  assert.equal(link[1],record.url);assert.equal(link[3],record.title);assert.equal(link[4],record.title);
+  const narou=link[2].match(/<a href="([^"]+)"[^>]*data-reading-platform="narou"/);
+  assert(narou,'Missing Narou option'); assert.equal(narou[1],record.url);
+  assert(link[2].includes('<h3>'+record.title+'</h3>'),'Shared episode title mismatch');
   assert.equal(record.url,`https://ncode.syosetu.com/n0686mv/${number+1}/`,'Chapter numbering must include EP0');
   episodeLinks.push(number);
  }
 }
 assert.deepEqual(episodeLinks,manifest.episodes.map(e=>e.number),'Duplicate or missing published episode');
-assert(html.includes('第0話から第'+manifest.throughEpisode+'話まで公開中。'));
-assert(html.includes('OFFICIAL WEBSITE · 第'+manifest.throughEpisode+'話まで公開中'));
+assert(html.includes('このサイトの目次は第0〜'+manifest.throughEpisode+'話。'));
+assert(html.includes('OFFICIAL WEBSITE · 第'+manifest.throughEpisode+'話までの作品紹介'));
 assert(!html.includes('第0話から第10話まで掲載。'),'Stale publication count');
-assert(html.includes('id="episodes-'+(manifest.throughEpisode===50?'41-50':'31-40')+'" open'),'Newest published group should be available');
+assert(html.includes('id="episodes-0-10" open'),'New readers should start with the first group');
 assert(!html.includes('id="episodes-21-30" open'),'Older group should retain its closed default');
 assert(html.includes('class="hero-media"><img class="hero-art"'),'Hero artwork needs its own layout track');
 assert(!html.includes('class="hero-shade"'),'Full-cover image overlay is still enabled');
@@ -90,7 +93,7 @@ for(const match of html.matchAll(/(?:src|href|poster)="([^"]+)"/g)) {
  const value=match[1];
  if(value.startsWith('#')) assert(ids.includes(value.slice(1)),`Missing anchor: ${value}`);
  else if(!value.startsWith('https://')) assert(existsSync(path.join(root,'docs',value.split('?')[0])),`Missing resource: ${value}`);
- else assert(value.startsWith(`${manifest.origin}/`)||value==='https://ncode.syosetu.com/n0686mv/'||value==='https://umami.is/privacy'||manifest.episodes.some(e=>e.url===value),`Unexpected external URL: ${value}`);
+ else assert(value.startsWith(`${manifest.origin}/`)||value==='https://ncode.syosetu.com/n0686mv/'||value==='https://umami.is/privacy'||manifest.episodes.some(e=>e.url===value)||value===manifest.readingPlatforms.kakuyomu.workURL||manifest.readingPlatforms.kakuyomu.episodes.some(e=>e.url===value),`Unexpected external URL: ${value}`);
 }
 assert(html.includes('controls playsinline')&&html.includes('assets/teaser-30s-v02.mp4'),'Instrumental video missing');
 assert(!/<track\b/.test(html),'Browser captions would duplicate burned-in subtitles');
@@ -276,10 +279,14 @@ if(releaseMode){
  assert.equal(proof.episode50.url,'https://ncode.syosetu.com/n0686mv/51/');
  assert(proof.episode50.textLength>200&&/^[a-f0-9]{64}$/.test(proof.episode50.sha256));
  assert(/^[a-f0-9]{64}$/.test(proof.indexSha256));
+ const readingProofArg=process.argv.indexOf('--reading-proof');
+ assert(readingProofArg>=0&&process.argv[readingProofArg+1],'A fresh Kakuyomu publication check is required');
+ verifyKakuyomuPublicationProof(JSON.parse(readFileSync(process.argv[readingProofArg+1],'utf8')),manifest.readingPlatforms);
 }
 const publicText=[html,css,worldStyle,worldScript,analyticsScript,jubileeScript,jubileeStyle,readFileSync(path.join(root,'README.md'),'utf8')].join('\n');
 assert(!/file:\/\/|[A-Z]:[\\/]|Users[\\/]|generated_images|\.prompt\.|OPENAI_API_KEY|AKIA[0-9A-Z]{16}/.test(publicText),'Private path, prompt or credential marker');
 assert(!/\b(?:fetch|XMLHttpRequest|WebSocket|eval|Audio)\s*\(|localStorage|sessionStorage|innerHTML|document\.cookie|setInterval/.test(worldScript),'No remote requests, tracking or sound');
 const analyticsChecks=verifyAnalytics();
 const jubileeChecks=verifyJubilee();
-console.log(JSON.stringify({verified:true,releaseReady:releaseMode,livePublicationChecked:releaseMode,requiredThroughEpisode:50,publicFiles:expectedFiles.length,unknownSlots:1,throughEpisode:manifest.throughEpisode,episodeLinks:episodeLinks.length,groups:groups.length,heroSeparated:true,worldLocations:manifest.world.locations,worldSpots:manifest.world.spots,worldIllustrationOnly:true,readerGatedCards:3,mealTerminal:true,mealPresentation:true,jubilee:true,jubileeChecks,analyticsChecks,exactAllowlist:true,sha256:true}));
+const readingChecks=verifyReading();
+console.log(JSON.stringify({verified:true,releaseReady:releaseMode,livePublicationChecked:releaseMode,requiredThroughEpisode:50,publicFiles:expectedFiles.length,unknownSlots:1,throughEpisode:manifest.throughEpisode,episodeLinks:episodeLinks.length,kakuyomuEpisodeLinks:manifest.readingPlatforms.kakuyomu.episodes.length,groups:groups.length,readingChecks,heroSeparated:true,worldLocations:manifest.world.locations,worldSpots:manifest.world.spots,worldIllustrationOnly:true,readerGatedCards:3,mealTerminal:true,mealPresentation:true,jubilee:true,jubileeChecks,analyticsChecks,exactAllowlist:true,sha256:true}));

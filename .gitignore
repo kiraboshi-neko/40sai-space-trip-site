@@ -4,6 +4,7 @@
 !/.gitattributes
 !/verify.mjs
 !/analytics.test.mjs
+!/reading.test.mjs
 !/jubilee.test.mjs
 !/public-manifest.json
 !/docs/

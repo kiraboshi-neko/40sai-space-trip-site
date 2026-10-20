@@ -57,6 +57,12 @@ function fixture(options = {}) {
 export function verifyAnalytics() {
   let checks = 0;
   const check = work => { work(); checks++; };
+  check(() => {
+    const f=fixture(); f.load();
+    for(const href of ['https://kakuyomu.jp/works/11054822665065781184','https://kakuyomu.jp/works/11054822665065781184/episodes/11054822665065844134']) f.click(href,'episode');
+    assert.equal(f.received.length,1,'Kakuyomu links must not add a new tracking event');
+    assert.equal(f.window.spaceTripBeforeSend('event',{...f.received[0],name:'kakuyomu_click',data:{placement:'episode'}}),false);
+  });
   for (const options of [
     {origin: 'http://127.0.0.1:4184'}, {origin: 'null'}, {origin: 'https://example.invalid'},
     {path: '/another-work/'}, {path: sitePath + 'assets/test.html'}, {path: sitePath + 'future/'},
